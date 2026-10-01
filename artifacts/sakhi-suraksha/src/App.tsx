@@ -3,6 +3,7 @@ import { Link, Route, Switch, useLocation, Router as WouterRouter } from 'wouter
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { AlertCircle, ArrowRight, BadgeInfo, BookOpen, Building2, Check, ChevronRight, Copy, Flame, HeartPulse, Info, LocateFixed, MapPin, Phone, Share2, Shield, ShieldAlert, Siren, Pill, Navigation, LockKeyhole } from 'lucide-react';
 import { ErrorBoundary } from '@/components/error-boundary';
+import { InstallAppCard } from '@/components/install-app-card';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
 
@@ -120,6 +121,7 @@ function HomePage() {
       <Link href="/what-to-do" className="quick-link no-underline" data-testid="link-quick-guide"><HeartPulse size={17} className="text-[#9B7CF6]"/><span className="flex-1 text-sm font-medium">What To Do</span><ChevronRight size={16} className="text-[#6B7280]"/></Link>
       <Link href="/awareness" className="quick-link no-underline" data-testid="link-quick-awareness"><BookOpen size={17} className="text-[#9B7CF6]"/><span className="flex-1 text-sm font-medium">Emergency Awareness</span><ChevronRight size={16} className="text-[#6B7280]"/></Link>
     </div>
+    <InstallAppCard />
     <p className="mx-auto mt-5 max-w-lg text-center text-[11px] leading-relaxed text-[#6B7280]" data-testid="text-facility-note">Facility data comes from Google Maps Places. We never invent phone numbers.</p>
   </main>;
 }

@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Sakhi Suraksha"
+description = "An emergency-assistance and safety information web app that helps people contact emergency services, locate nearby help, and find practical guidance quickly."
+version = "1.0.0"
+id = "artifacts/sakhi-suraksha"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 25601
+
+[services.development]
+run = "pnpm --filter @workspace/sakhi-suraksha run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/sakhi-suraksha", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/sakhi-suraksha/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "25601"
+BASE_PATH = "/"

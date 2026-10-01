@@ -63,7 +63,7 @@ function SiteShell({ children }: { children: ReactNode }) {
 function CategoryGrid() {
   return <div className="grid grid-cols-2 gap-3">
     {categories.map(({ name, key, icon: Icon }) => <Link key={key} href={`/nearby?category=${key}`} className="category-tile no-underline" data-testid={`link-category-${key}`}>
-      <Icon size={22} strokeWidth={1.8} className="text-[#b7adff]" /><span className="font-semibold text-sm">{name}</span>
+      <Icon size={22} strokeWidth={1.8} className="text-[#9B7CF6]" /><span className="font-semibold text-sm">{name}</span>
     </Link>)}
   </div>;
 }
@@ -89,38 +89,38 @@ function LocationPanel({ inline = false }: { inline?: boolean }) {
   };
   return <section className={`panel p-5 sm:p-6 ${inline ? '' : 'mt-5'}`} aria-labelledby="find-help-heading">
     <div className="flex items-start gap-3">
-      <span className="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-[#7569e9]/15 text-[#bdb5ff]"><MapPin size={19} /></span>
+      <span className="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-[#E9E4FF] text-[#9B7CF6]"><MapPin size={19} /></span>
       <div className="min-w-0 flex-1">
-        <h2 className="font-bold text-[15px] text-[#f3f1ff]" id="find-help-heading">{selected ? `Find ${selected.name} Near Me` : 'Find Help Near Me'}</h2>
+        <h2 className="font-bold text-[15px] text-[#111827]" id="find-help-heading">{selected ? `Find ${selected.name} Near Me` : 'Find Help Near Me'}</h2>
         <p className="body-copy mt-1 text-xs">Find nearby emergency facilities and available contact information.</p>
       </div>
     </div>
-    {selected && <p className="mt-4 text-xs text-[#aeb0c9]">{selected.detail}</p>}
+    {selected && <p className="mt-4 text-xs text-[#6B7280]">{selected.detail}</p>}
     <div className="mt-4 flex flex-wrap items-center gap-3">
-      <button className="outline-action !border-0 !bg-gradient-to-r !from-[#7664ee] !to-[#5069e9] !px-4 !py-2.5 text-xs font-semibold" onClick={getHelp} disabled={loading} data-testid="button-use-location">
+      <button className="outline-action !border-0 !bg-gradient-to-r !from-[#A47CF5] !to-[#6685F5] !px-4 !py-2.5 text-xs font-semibold !text-white" onClick={getHelp} disabled={loading} data-testid="button-use-location">
         <LocateFixed size={15} />{loading ? 'Finding location…' : 'Use my location'}
       </button>
       {mapsUrl && <a href={mapsUrl} target="_blank" rel="noreferrer" className="outline-action !py-2.5 text-xs" data-testid="link-open-maps"><Navigation size={15} />Open in Google Maps<ArrowRight size={14} /></a>}
     </div>
-    {status && <p className="mt-3 flex items-start gap-2 text-xs leading-relaxed text-[#b9bbcf]" role="status" data-testid="status-location"><Info size={14} className="mt-0.5 shrink-0 text-[#aaa1ff]" />{status}</p>}
+    {status && <p className="mt-3 flex items-start gap-2 text-xs leading-relaxed text-[#6B7280]" role="status" data-testid="status-location"><Info size={14} className="mt-0.5 shrink-0 text-[#9B7CF6]" />{status}</p>}
   </section>;
 }
 
 function HomePage() {
   return <main className="main-content home-content">
-    <div className="mb-5 flex items-center justify-between"><div><div className="eyebrow">Help, when it matters</div><p className="mt-2 text-sm text-[#d1d0df]">Clear steps. Nearby support. One number.</p></div><span className="hidden sm:grid h-12 w-12 place-items-center rounded-2xl border border-white/10 bg-white/[.04] text-[#aaa1ff]"><Shield size={22}/></span></div>
+    <div className="mb-5 flex items-center justify-between"><div><div className="eyebrow">Help, when it matters</div><p className="mt-2 text-sm text-[#6B7280]">Clear steps. Nearby support. One number.</p></div><span className="hidden sm:grid h-12 w-12 place-items-center rounded-2xl border border-[#E5E5EF] bg-white text-[#9B7CF6]"><Shield size={22}/></span></div>
     <EmergencyCall />
     <LocationPanel inline />
     <div className="section-label">CATEGORIES</div>
     <CategoryGrid />
     <div className="section-label">QUICK ACTIONS</div>
     <div className="grid gap-2.5">
-      <Link href="/nearby" className="quick-link no-underline" data-testid="link-quick-find"><MapPin size={17} className="text-[#ff7b76]"/><span className="flex-1 text-sm font-medium">Find Help Near Me</span><ChevronRight size={16} className="text-[#8588a4]"/></Link>
-      <a href="tel:112" className="quick-link no-underline" data-testid="link-quick-call"><Phone size={17} className="text-[#ff7b76]"/><span className="flex-1 text-sm font-medium">Call 112</span><ChevronRight size={16} className="text-[#8588a4]"/></a>
-      <Link href="/what-to-do" className="quick-link no-underline" data-testid="link-quick-guide"><HeartPulse size={17} className="text-[#ff7b76]"/><span className="flex-1 text-sm font-medium">What To Do</span><ChevronRight size={16} className="text-[#8588a4]"/></Link>
-      <Link href="/awareness" className="quick-link no-underline" data-testid="link-quick-awareness"><BookOpen size={17} className="text-[#ff7b76]"/><span className="flex-1 text-sm font-medium">Emergency Awareness</span><ChevronRight size={16} className="text-[#8588a4]"/></Link>
+      <Link href="/nearby" className="quick-link no-underline" data-testid="link-quick-find"><MapPin size={17} className="text-[#9B7CF6]"/><span className="flex-1 text-sm font-medium">Find Help Near Me</span><ChevronRight size={16} className="text-[#6B7280]"/></Link>
+      <a href="tel:112" className="quick-link no-underline" data-testid="link-quick-call"><Phone size={17} className="text-[#9B7CF6]"/><span className="flex-1 text-sm font-medium">Call 112</span><ChevronRight size={16} className="text-[#6B7280]"/></a>
+      <Link href="/what-to-do" className="quick-link no-underline" data-testid="link-quick-guide"><HeartPulse size={17} className="text-[#9B7CF6]"/><span className="flex-1 text-sm font-medium">What To Do</span><ChevronRight size={16} className="text-[#6B7280]"/></Link>
+      <Link href="/awareness" className="quick-link no-underline" data-testid="link-quick-awareness"><BookOpen size={17} className="text-[#9B7CF6]"/><span className="flex-1 text-sm font-medium">Emergency Awareness</span><ChevronRight size={16} className="text-[#6B7280]"/></Link>
     </div>
-    <p className="mx-auto mt-5 max-w-lg text-center text-[11px] leading-relaxed text-[#81849f]" data-testid="text-facility-note">Facility data comes from Google Maps Places. We never invent phone numbers.</p>
+    <p className="mx-auto mt-5 max-w-lg text-center text-[11px] leading-relaxed text-[#6B7280]" data-testid="text-facility-note">Facility data comes from Google Maps Places. We never invent phone numbers.</p>
   </main>;
 }
 
@@ -130,7 +130,7 @@ function NearbyPage() {
     <p className="body-copy mt-3 max-w-xl">Choose a service and use your location to search Google Maps for nearby facilities.</p>
     <div className="section-label">CHOOSE A CATEGORY</div><CategoryGrid />
     <LocationPanel />
-    <p className="mt-4 flex gap-2 text-xs leading-relaxed text-[#8589a5]"><AlertCircle size={15} className="mt-0.5 shrink-0"/>Nearby facility information is provided by Google Maps Places. Sakhi Suraksha does not display fabricated results or phone numbers.</p>
+    <p className="mt-4 flex gap-2 text-xs leading-relaxed text-[#6B7280]"><AlertCircle size={15} className="mt-0.5 shrink-0"/>Nearby facility information is provided by Google Maps Places. Sakhi Suraksha does not display fabricated results or phone numbers.</p>
   </main>;
 }
 
@@ -141,7 +141,7 @@ function GuidePage() {
     <div className="my-6"><EmergencyCall compact /></div>
     <div className="grid gap-3">
       {steps.map(([title, description], index) => <article className="panel flex gap-4 p-4 sm:p-5" key={title} data-testid={`card-emergency-step-${index + 1}`}>
-        <span className="step-number">{index + 1}</span><div><h2 className="font-bold text-sm text-[#f3f1ff]">{title}</h2><p className="body-copy mt-1.5 text-sm">{description}</p></div>
+        <span className="step-number">{index + 1}</span><div><h2 className="font-bold text-sm text-[#111827]">{title}</h2><p className="body-copy mt-1.5 text-sm">{description}</p></div>
       </article>)}
     </div>
     <p className="body-copy mt-5 text-xs">If you are in immediate danger, move to a safer place if possible and call 112.</p>
@@ -152,14 +152,14 @@ function AwarenessPage() {
   return <main className="main-content">
     <p className="eyebrow mb-3">KNOW. LOCATE. ACT.</p><h1 className="page-heading">Emergency awareness</h1>
     <section className="panel mt-6 p-5 sm:p-7">
-      <span className="grid h-12 w-12 place-items-center rounded-2xl bg-[#7668e9]/15 text-[#bdb5ff]"><Building2 size={23}/></span>
-      <h2 className="mt-5 font-bold text-xl text-[#f4f2ff]">Community Engagement Project</h2>
+      <span className="grid h-12 w-12 place-items-center rounded-2xl bg-[#E9E4FF] text-[#9B7CF6]"><Building2 size={23}/></span>
+      <h2 className="mt-5 font-bold text-xl text-[#111827]">Community Engagement Project</h2>
       <p className="body-copy mt-3">Sakhi Suraksha is part of a Community Engagement Project focused on emergency awareness. It brings together practical emergency guidance, access to nearby services and information about the national emergency number.</p>
       <p className="body-copy mt-3">Knowing what to do and how to seek help can make a difference during an emergency. Explore the guidance and share it with your community.</p>
     </section>
     <section className="panel mt-4 flex flex-col gap-5 p-5 sm:flex-row sm:items-center sm:justify-between sm:p-7">
-      <div><p className="eyebrow">NATIONAL EMERGENCY NUMBER</p><p className="mt-2 font-[800] text-5xl tracking-tight text-[#ff6a72]">112</p><p className="body-copy mt-2 text-sm">Call 112 for emergency assistance.</p></div>
-      <a className="outline-action !border-[#ef5968]/30 !bg-[#ef5968]/10 !text-[#ff9397]" href="tel:112" data-testid="link-awareness-call"><Phone size={17}/>Call 112</a>
+      <div><p className="eyebrow">NATIONAL EMERGENCY NUMBER</p><p className="mt-2 font-semibold text-5xl tracking-tight text-[#6685F5]">112</p><p className="body-copy mt-2 text-sm">Call 112 for emergency assistance.</p></div>
+      <a className="outline-action !border-[#E5E5EF] !bg-[#E9E4FF] !text-[#6685F5]" href="tel:112" data-testid="link-awareness-call"><Phone size={17}/>Call 112</a>
     </section>
   </main>;
 }
@@ -177,18 +177,18 @@ function CardPage() {
   return <main className="main-content max-w-[610px]">
     <p className="eyebrow mb-3">KEEP HELP CLOSE</p><h1 className="page-heading">Emergency card</h1>
     <section className="panel relative mt-6 overflow-hidden px-6 py-9 text-center sm:px-10 sm:py-12" data-testid="card-emergency-number">
-      <div className="pointer-events-none absolute -right-14 -top-16 h-56 w-56 rounded-full border border-white/[.05]"/><div className="pointer-events-none absolute -right-5 -top-7 h-36 w-36 rounded-full border border-white/[.05]"/>
+      <div className="pointer-events-none absolute -right-14 -top-16 h-56 w-56 rounded-full border border-[#E5E5EF]"/><div className="pointer-events-none absolute -right-5 -top-7 h-36 w-36 rounded-full border border-[#E5E5EF]"/>
       <div className="relative"><div className="brand-word">SAKHI SURAKSHA</div><div className="brand-tag mt-2">KNOW. LOCATE. ACT.</div>
-        <p className="mt-7 font-[800] text-7xl tracking-[-.06em] text-[#ff6875] sm:text-8xl">112</p>
+        <p className="mt-7 font-bold text-7xl tracking-[-.06em] text-[#6685F5] sm:text-8xl">112</p>
         <p className="eyebrow mt-3">NATIONAL EMERGENCY NUMBER</p>
-        <div className="mt-7 flex items-center justify-center gap-2 text-[10px] font-semibold tracking-[.2em] text-[#b3b4c7]"><Shield size={14}/>POLICE <span className="text-[#656983]">•</span> MEDICAL <span className="text-[#656983]">•</span> FIRE <span className="text-[#656983]">•</span> SAFETY</div>
+        <div className="mt-7 flex items-center justify-center gap-2 text-[10px] font-semibold tracking-[.2em] text-[#6B7280]"><Shield size={14}/>POLICE <span className="text-[#6B7280]">•</span> MEDICAL <span className="text-[#6B7280]">•</span> FIRE <span className="text-[#6B7280]">•</span> SAFETY</div>
       </div>
     </section>
     <div className="mt-4"><EmergencyCall compact /></div>
     <section className="panel mt-4 p-5 sm:p-6">
-      <div className="flex items-start gap-3"><span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-[#7668e9]/15 text-[#bdb5ff]"><Share2 size={18}/></span><div><h2 className="font-bold text-sm">Share emergency card</h2><p className="body-copy mt-1 text-xs">Share the emergency number and Sakhi Suraksha link with someone you care about.</p></div></div>
-      <button className="outline-action mt-4 w-full !bg-[#7163e7] !text-white" onClick={share} data-testid="button-share-card"><Share2 size={16}/>Share Sakhi Suraksha</button>
-      {feedback && <p className="mt-3 flex items-center justify-center gap-2 text-xs text-[#bdb5ff]" role="status" data-testid="status-share"><Check size={14}/>{feedback}</p>}
+      <div className="flex items-start gap-3"><span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-[#E9E4FF] text-[#9B7CF6]"><Share2 size={18}/></span><div><h2 className="font-bold text-sm">Share emergency card</h2><p className="body-copy mt-1 text-xs">Share the emergency number and Sakhi Suraksha link with someone you care about.</p></div></div>
+      <button className="outline-action mt-4 w-full !border-0 !bg-gradient-to-r !from-[#A47CF5] !to-[#6685F5] !text-white" onClick={share} data-testid="button-share-card"><Share2 size={16}/>Share Sakhi Suraksha</button>
+      {feedback && <p className="mt-3 flex items-center justify-center gap-2 text-xs text-[#9B7CF6]" role="status" data-testid="status-share"><Check size={14}/>{feedback}</p>}
     </section>
   </main>;
 }
@@ -198,16 +198,16 @@ function AboutPage() {
     <p className="eyebrow mb-3">ABOUT THIS PROJECT</p><h1 className="page-heading">Sakhi Suraksha</h1>
     <p className="body-copy mt-3 max-w-xl">KNOW. LOCATE. ACT.</p>
     <section className="panel mt-6 p-5 sm:p-7">
-      <h2 className="font-bold text-xl text-[#f4f2ff]">Our goals</h2>
+      <h2 className="font-bold text-xl text-[#111827]">Our goals</h2>
       <p className="body-copy mt-3">Sakhi Suraksha aims to make essential emergency information easy to find: how to call 112, where to look for nearby emergency services, and what steps to take in an emergency.</p>
       <p className="body-copy mt-3">This Community Engagement Project supports awareness and practical preparedness. It is an information resource and does not replace emergency services.</p>
     </section>
     <section className="panel mt-4 p-5 sm:p-7">
-      <div className="flex items-center gap-3"><span className="grid h-10 w-10 place-items-center rounded-xl bg-[#39b9a3]/10 text-[#70d9c2]"><LockKeyhole size={19}/></span><h2 className="font-bold text-xl text-[#f4f2ff]">Privacy</h2></div>
+      <div className="flex items-center gap-3"><span className="grid h-10 w-10 place-items-center rounded-xl bg-[#75DDE4]/15 text-[#75DDE4]"><LockKeyhole size={19}/></span><h2 className="font-bold text-xl text-[#111827]">Privacy</h2></div>
       <p className="body-copy mt-4">Your location is requested only when you choose “Use my location” to create a Google Maps search. The search opens Google Maps; location access is controlled by your browser. Sakhi Suraksha does not display fabricated facility listings or phone numbers.</p>
       <p className="body-copy mt-3">You can use the informational pages without sharing your location. Emergency calls are placed through your device using 112.</p>
     </section>
-    <section className="mt-4 flex items-start gap-3 rounded-2xl border border-white/[.08] bg-white/[.025] p-4 text-xs leading-relaxed text-[#9fa2bb]"><Copy size={15} className="mt-0.5 shrink-0 text-[#aaa1ff]"/>Facility data comes from Google Maps Places. We never invent phone numbers.</section>
+    <section className="mt-4 flex items-start gap-3 rounded-2xl border border-[#E5E5EF] bg-white p-4 text-xs leading-relaxed text-[#6B7280]"><Copy size={15} className="mt-0.5 shrink-0 text-[#9B7CF6]"/>Facility data comes from Google Maps Places. We never invent phone numbers.</section>
   </main>;
 }
 
